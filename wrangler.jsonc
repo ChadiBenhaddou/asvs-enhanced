@@ -1,8 +1,15 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "asvs-app",
+  // use the Angular project name and correct build output folder
+  "name": "asvs-security-app",
   "compatibility_date": "2025-09-27",
+  "main": "server.ts",                     // entrypoint for SSR (optional)
+  "type": "javascript",                  // module type that matches tsconfig output
+  "build": {
+    "command": "npm run build",          // adjust if you have a custom build script
+    "cwd": "."
+  },
   "assets": {
-    "directory": "dist/asvs-app/browser"
+    "directory": "dist/asvs-security-app/browser"
   }
 }
