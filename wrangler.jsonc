@@ -7,7 +7,6 @@
   // Angular SSR. without this flag the build will complain about "fs",
   // "path", "crypto", etc.
   "compatibility_flags": ["nodejs_compat"],
-  "main": "server.ts",                     // entrypoint for SSR
   "build": {
     "command": "npm run build",
     "cwd": "."
