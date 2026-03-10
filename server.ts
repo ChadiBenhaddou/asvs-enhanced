@@ -46,3 +46,12 @@ function run(): void {
 }
 
 run();
+
+// export a dummy default object so Wrangler treats this file as a module worker
+// (the actual Express server won't run inside the Worker, but this satisfies
+// the build requirement)
+export default {
+  fetch(request: Request) {
+    return new Response('This worker is not intended to run the Angular SSR server.');
+  }
+};

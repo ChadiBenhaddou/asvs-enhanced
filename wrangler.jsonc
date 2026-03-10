@@ -7,11 +7,13 @@
   // Angular SSR. without this flag the build will complain about "fs",
   // "path", "crypto", etc.
   "compatibility_flags": ["nodejs_compat"],
-  "format": "modules",                     // treat entry as ES module
   "main": "server.ts",                     // entrypoint for SSR
   "build": {
     "command": "npm run build",
     "cwd": "."
+  },
+  "upload": {
+    "format": "modules"                    // treat entry as ES module worker
   },
   "assets": {
     "directory": "dist/asvs-security-app/browser"
