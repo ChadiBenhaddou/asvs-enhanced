@@ -1,12 +1,16 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  // use the Angular project name and correct build output folder
-  "name": "asvs-security-app",
+  // worker name must match repository/CI expectations
+  "name": "asvs-enhanced",
   "compatibility_date": "2025-09-27",
-  "main": "server.ts",                     // entrypoint for SSR (optional)
-  "type": "javascript",                  // module type that matches tsconfig output
+  // enable nodejs compatibility to resolve built-in modules used by express/
+  // Angular SSR. without this flag the build will complain about "fs",
+  // "path", "crypto", etc.
+  "compatibility_flags": ["nodejs_compat"],
+  "format": "modules",                     // treat entry as ES module
+  "main": "server.ts",                     // entrypoint for SSR
   "build": {
-    "command": "npm run build",          // adjust if you have a custom build script
+    "command": "npm run build",
     "cwd": "."
   },
   "assets": {
